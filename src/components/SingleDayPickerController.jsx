@@ -81,6 +81,9 @@ export default class DayPickerRangeController extends React.Component {
       'highlighted-calendar': day => props.isDayHighlighted(day),
       valid: day => !this.isBlocked(day),
       selected: day => this.isSelectedDate(day),
+      startDate: day => this.isStartDate(day),
+      endDate: day => this.isEndDate(day),
+      dateInRange: day => this.isInSelectedSpan(day),
       hovered: day => this.isHovered(day),
     };
 
@@ -105,6 +108,8 @@ export default class DayPickerRangeController extends React.Component {
   componentWillReceiveProps(nextProps) {
     const {
             date,
+            startDate,
+            endDate,
             focused,
             isOutsideRange,
             isDayBlocked,
@@ -127,7 +132,8 @@ export default class DayPickerRangeController extends React.Component {
     if (isDayHighlighted !== this.props.isDayHighlighted) {
       this.modifiers['highlighted-calendar'] = day => isDayHighlighted(day);
     }
-
+    const didStartDateChange = startDate !== this.props.startDate;
+    const didEndDateChange = endDate !== this.props.endDate;
     const didDateChange = date !== this.props.date;
     const didFocusChange = focused !== this.props.focused;
 
@@ -151,6 +157,16 @@ export default class DayPickerRangeController extends React.Component {
     }
 
     let modifiers = {};
+
+    if (didStartDateChange) {
+      modifiers = this.deleteModifier(modifiers, this.props.startDate, 'startDate');
+      modifiers = this.addModifier(modifiers, startDate, 'startDate');
+    }
+
+    if (didEndDateChange) {
+      modifiers = this.deleteModifier(modifiers, this.props.endDate, 'endDate');
+      modifiers = this.addModifier(modifiers, endDate, 'endDate');
+    }
 
     if (didDateChange) {
       modifiers = this.deleteModifier(modifiers, this.props.date, 'selected');
@@ -459,6 +475,19 @@ export default class DayPickerRangeController extends React.Component {
 
   isSelectedDate(day) {
     return isSameDay(day, this.props.date);
+  }
+
+  isStartDate(day) {
+    return isSameDay(day, this.props.startDate);
+  }
+
+  isEndDate(day) {
+    return isSameDay(day, this.props.endDate);
+  }
+
+  isInSelectedSpan(day) {
+    const { startDate, endDate } = this.props;
+    return day.isBetween(startDate, endDate);
   }
 
   render() {
