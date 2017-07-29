@@ -286,7 +286,7 @@ export default class DayPickerRangeController extends React.Component {
       }
     }
 
-    if (didFocusChange) {
+    if (didFocusChange || didStartDateChange || didEndDateChange) {
       values(visibleDays).forEach((days) => {
         Object.keys(days).forEach((day) => {
           const momentObj = moment(day);
