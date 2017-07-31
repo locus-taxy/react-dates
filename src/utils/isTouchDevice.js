@@ -1,4 +1,5 @@
-export default function isTouchDevice() {
-  return !!(typeof window !== 'undefined' && 'ontouchstart' in window) ||
-    !!(typeof navigator !== 'undefined' && navigator.maxTouchPoints);
-}
+import isTouchDevice from 'is-touch-device';
+
+console.warn(`${__filename} is deprecated; please use the is-touch-device package instead.`);
+
+export default isTouchDevice;

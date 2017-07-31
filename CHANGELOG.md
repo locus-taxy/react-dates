@@ -1,5 +1,40 @@
 # Change Log
 
+## 12.3.0
+- [fix] Allows users to type in same-day start date and end date when `minimumNights` is 0 ([#555](https://github.com/airbnb/react-dates/pull/555))
+- [new] Add `firstDayOfWeek` prop ([#371](https://github.com/airbnb/react-dates/pull/371))
+- [fix] Add back `phrases` support for `SingleDatePicker` ([#623](https://github.com/airbnb/react-dates/pull/623))
+
+## 12.2.4
+- [fix] Fix `initialVisibleMonth` error in the `DayPickerRangeController` component ([#617](https://github.com/airbnb/react-dates/pull/617))
+- [fix] Pass through missing `keepOpenOnDateSelect` prop to the `DayPickerSingleDateController` component ([#620](https://github.com/airbnb/react-dates/pull/620))
+
+## 12.2.3
+- [fix] Export `DayPickerSingleDateController` in index.js ([#609](https://github.com/airbnb/react-dates/pull/609))
+
+## 12.2.2
+- [fix] Reevaluate `--blocked` and `--blocked-outside-range` modifiers in the SDP componentWilLReceiveProps ([#550](https://github.com/airbnb/react-dates/pull/550))
+
+## 12.2.1
+- [fix] Fix `isTouchDevice` warning in `DayPickerSingleDateController` ([77e2135](https://github.com/airbnb/react-dates/commit/77e2135d2009994fbf2c62e3ff68ce82e5786194))
+
+## v12.2.0
+- [fix] Deprecate `isTouchDevice` in favor of `is-touch-device` ([#576](https://github.com/airbnb/react-dates/pull/576))
+- [fix] Disable calendar icon when component is disabled ([#591](https://github.com/airbnb/react-dates/pull/591))
+- [fix] Fix issue where range does not clear on invisible months ([#575](https://github.com/airbnb/react-dates/pull/575))
+- [new] Add `DayPickerSingleDateController` component ([#573](https://github.com/airbnb/react-dates/pull/573))
+
+## v12.1.2
+- [fix] Add null check for calendarMonthGrid ref ([#552](https://github.com/airbnb/react-dates/pull/552))
+
+## v12.1.1
+- [fix] Remove `--hovered-span` modifier when selecting a new end date ([#523](https://github.com/airbnb/react-dates/pull/523))
+- [fix] Improve `isTouchDevice` detection logic ([#516](https://github.com/airbnb/react-dates/pull/516))
+- [fix] Recompute `--blocked` and `--blocked-outside-range` when `focusedInput` changes ([#522](https://github.com/airbnb/react-dates/pull/522))
+
+## v12.1.0
+- [new] Add `showDefaultInputIcon` and `customInputIcon` props to SDP ([#513](https://github.com/airbnb/react-dates/pull/513))
+
 ## v12.0.0
 - [breaking] Updates moment peer dependency to ^2.18.1 ([#505](https://github.com/airbnb/react-dates/pull/505))
 
