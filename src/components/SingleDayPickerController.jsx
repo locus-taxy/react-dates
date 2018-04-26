@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import values from 'object.values';
 
-import isTouchDevice from '../utils/isTouchDevice';
+import isTouchDevice from 'is-touch-device';
 
 import isNextDay from '../utils/isNextDay';
 import isSameDay from '../utils/isSameDay';
